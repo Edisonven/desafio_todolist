@@ -74,11 +74,29 @@ input[type="text"] {
 .span__text {
   font-size: 1.3rem;
 }
-.tareas__container {
+.tareas__container,
+.id__container {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 .submenu__container {
-  display: flex;
-  gap: 40px;
   margin-left: 500px;
+  display: flex;
+  gap: 50px;
+}
+.sub__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sub__menu--id {
+  overflow: hidden;
+  width: 25px;
+}
+.checkbox {
+  margin-left: 100px;
+}
+.btn-2 {
+  margin-left: 20px;
 }

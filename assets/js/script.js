@@ -30,3 +30,9 @@ function borrar(id) {
   renderArrayList();
 }
 
+btnNuevaTarea.addEventListener("click", () => {
+  let inputValue = inputNuevaTarea.value;
+  inputNuevaTarea.value = "";
+  arrayList.push({ id: Date.now(), tarea: inputValue });
+  renderArrayList();
+});

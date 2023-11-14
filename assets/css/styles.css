@@ -63,7 +63,7 @@ input[type="text"] {
 
 .menu__container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 40px;
 }
 .span__container {

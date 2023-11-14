@@ -32,7 +32,11 @@ function borrar(id) {
 
 btnNuevaTarea.addEventListener("click", () => {
   let inputValue = inputNuevaTarea.value;
+  if (inputNuevaTarea.value === "") {
+    alert("Debes ingresar una tarea");
+  } else {
+    arrayList.push({ id: Date.now(), tarea: inputValue, realizada: false });
+    renderArrayList();
+  }
   inputNuevaTarea.value = "";
-  arrayList.push({ id: Date.now(), tarea: inputValue });
-  renderArrayList();
 });

@@ -13,26 +13,25 @@ let arrayList = [
   { id: 18, tarea: "Hacer mercado", realizada: false },
 ];
 
-//funcion que renderiza las tareas agregadas por defecto
+//funcion que renderiza las tareas agregadas por defecto (y las tareas agregadas por input)
 function renderArrayList() {
   let htmlListTarea = "";
   let htmlListId = "";
   for (const item of arrayList) {
-    htmlListTarea += `<p class="span__text">${item.tarea}<input class="checkbox" type="checkbox" name="" id="check">
+    htmlListTarea += `<p class="span__text">${item.tarea}<input class="checkbox" onchange="checkState(${item.id})" type="checkbox" name="" id="check">
     <button class="btn-2" onclick="borrar(${item.id})">Eliminar</button></p>`;
     htmlListId += ` <p class="span__text">${item.id}</p>`;
   }
   contentNuevaTarea.innerHTML = htmlListTarea;
   idNuevaTarea.innerHTML = htmlListId;
-  totalTareas.textContent = `Total: ${arrayList.length}`;
+  totalTareas.textContent = arrayList.length;
 }
 renderArrayList();
 
 // función que borra un elemento agregado al arreglo por su id
-function borrar() {
+function borrar(id) {
   let indice = arrayList.findIndex((list) => list.id == id);
   arrayList.splice(indice, 1);
-
   renderArrayList();
 }
 
@@ -47,3 +46,14 @@ btnNuevaTarea.addEventListener("click", () => {
   }
   inputNuevaTarea.value = "";
 });
+
+function checkState(id) {
+  let tareaEncontrada = arrayList.find((list) => list.id == id);
+  if (tareaEncontrada.realizada) {
+    tareaEncontrada.realizada = false;
+    tareasRealizadas.innerHTML--;
+  } else {
+    tareaEncontrada.realizada = true;
+    tareasRealizadas.innerHTML++;
+  }
+}

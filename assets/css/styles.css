@@ -64,6 +64,7 @@ input[type="text"] {
 .menu__container {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   margin-top: 40px;
 }
 .span__container {
@@ -81,8 +82,8 @@ input[type="text"] {
   gap: 10px;
 }
 .submenu__container {
-  margin-left: 500px;
   display: flex;
+  align-items: center;
   gap: 50px;
 }
 .sub__menu {

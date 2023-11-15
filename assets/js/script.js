@@ -18,8 +18,8 @@ function renderArrayList() {
   let htmlListTarea = "";
   let htmlListId = "";
   for (const item of arrayList) {
-    htmlListTarea += `<p class="span__text">${item.tarea}<input class="checkbox" onchange="checkState(${item.id})" type="checkbox" name="" id="check">
-    <button class="btn-2" onclick="borrar(${item.id})">Eliminar</button></p>`;
+    htmlListTarea += `<span class="span__text">${item.tarea}<input class="checkbox" onchange="checkState(${item.id})" type="checkbox" name="" id="check">
+    <button class="btn-2" onclick="borrar(${item.id})">Eliminar</button></span>`;
     htmlListId += ` <p class="span__text">${item.id}</p>`;
   }
   contentNuevaTarea.innerHTML = htmlListTarea;
@@ -47,6 +47,7 @@ btnNuevaTarea.addEventListener("click", () => {
   inputNuevaTarea.value = "";
 });
 
+//funcion para actualizar la lista de tareas cuando están realizadas 
 function checkState(id) {
   let tareaEncontrada = arrayList.find((list) => list.id == id);
   if (tareaEncontrada.realizada) {

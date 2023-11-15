@@ -30,7 +30,7 @@ renderArrayList();
 
 // función que borra un elemento agregado al arreglo por su id
 function borrar(id) {
-  let indice = arrayList.findIndex((list) => list.id == id);
+  let indice = arrayList.findIndex((list) => list.id === id);
   arrayList.splice(indice, 1);
   renderArrayList();
 }
@@ -47,9 +47,9 @@ btnNuevaTarea.addEventListener("click", () => {
   inputNuevaTarea.value = "";
 });
 
-//funcion para actualizar la lista de tareas cuando están realizadas 
+//funcion para actualizar la lista de tareas cuando están realizadas
 function checkState(id) {
-  let tareaEncontrada = arrayList.find((list) => list.id == id);
+  let tareaEncontrada = arrayList.find((list) => list.id === id);
   if (tareaEncontrada.realizada) {
     tareaEncontrada.realizada = false;
     tareasRealizadas.innerHTML--;

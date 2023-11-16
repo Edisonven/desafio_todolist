@@ -52,9 +52,12 @@ function checkState(id) {
   let tareaEncontrada = arrayList.find((list) => list.id === id);
   if (tareaEncontrada.realizada) {
     tareaEncontrada.realizada = false;
-    tareasRealizadas.innerHTML--;
+    realizadaFiltrada = arrayList.filter((item) => item.realizada === false);
+    tareasRealizadas.textContent--;
   } else {
     tareaEncontrada.realizada = true;
-    tareasRealizadas.innerHTML++;
+    realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
+    tareasRealizadas.textContent = realizadaFiltrada.length;
   }
+  console.log(realizadaFiltrada);
 }

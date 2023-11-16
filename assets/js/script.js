@@ -8,6 +8,7 @@ let tareasRealizadas = document.getElementById("realizadas");
 
 // arreglo de objetos con tareas por defecto
 let arrayList = [
+  { id: 15, tarea: "Hacer ejercicio", realizada: false },
   { id: 16, tarea: "Hacer el aseo", realizada: false },
   { id: 17, tarea: "Limpiar la cocina", realizada: false },
   { id: 18, tarea: "Hacer mercado", realizada: false },
@@ -17,11 +18,12 @@ let arrayList = [
 function renderArrayList() {
   let htmlListTarea = "";
   let htmlListId = "";
-  for (const item of arrayList) {
-    htmlListTarea += `<span class="span__text span__text--box">${item.tarea}<div><input class="checkbox" onchange="checkState(${item.id})" type="checkbox" name="" id="check">
+  arrayList.forEach((item) => {
+    htmlListTarea += `<span class="span__text span__text--box">${item.tarea}<div>
+    <input class="checkbox" onchange="checkState(${item.id})" type="checkbox" name="" id="check">
     <button class="btn-2" onclick="borrar(${item.id})">Eliminar</button></div></span>`;
     htmlListId += ` <p class="span__text">${item.id}</p>`;
-  }
+  });
   contentNuevaTarea.innerHTML = htmlListTarea;
   idNuevaTarea.innerHTML = htmlListId;
   totalTareas.textContent = arrayList.length;
@@ -30,8 +32,10 @@ renderArrayList();
 
 // función que borra un elemento agregado al arreglo por su id
 function borrar(id) {
-  let indice = arrayList.findIndex((list) => list.id === id);
-  arrayList.splice(indice, 1);
+  if (arrayList.length >= 2) {
+    let indice = arrayList.findIndex((list) => list.id === id);
+    arrayList.splice(indice, 1);
+  }
   renderArrayList();
 }
 

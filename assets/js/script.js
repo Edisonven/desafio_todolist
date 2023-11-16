@@ -20,8 +20,8 @@ function renderArrayList() {
   let htmlListId = "";
   arrayList.forEach((item) => {
     htmlListTarea += `<span class="span__text span__text--box">${item.tarea}<div>
-    <input class="checkbox" onchange="checkState(${item.id})" type="checkbox" name="" id="check">
-    <button class="btn-2" onclick="borrar(${item.id})">Eliminar</button></div></span>`;
+    <img class="icon" src="./assets/images/check.svg" onclick="checkState(${item.id})" alt="">
+    <img class="icon" src="./assets/images/x.svg" onclick="borrar(${item.id})" alt=""></div></span>`;
     htmlListId += ` <p class="span__text">${item.id}</p>`;
   });
   contentNuevaTarea.innerHTML = htmlListTarea;

@@ -55,14 +55,7 @@ btnNuevaTarea.addEventListener("click", () => {
 //funcion para actualizar la lista de tareas cuando están realizadas
 function checkState(id) {
   let tareaEncontrada = arrayList.find((list) => list.id === id);
-  if (tareaEncontrada.realizada) {
-    tareaEncontrada.realizada = false;
-    realizadaFiltrada = arrayList.filter((item) => item.realizada === false);
-    tareasRealizadas.textContent--;
-  } else {
-    tareaEncontrada.realizada = true;
-    realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
-    tareasRealizadas.textContent = realizadaFiltrada.length;
-  }
-  console.log(realizadaFiltrada);
+  tareaEncontrada.realizada = true;
+  realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
+  tareasRealizadas.textContent = realizadaFiltrada.length;
 }

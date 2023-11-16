@@ -90,10 +90,6 @@ input[type="text"] {
   flex-direction: column;
   gap: 10px;
 }
-.sub__menu--id {
-  overflow: hidden;
-  width: 25px;
-}
 .checkbox {
   margin-left: 100px;
 }

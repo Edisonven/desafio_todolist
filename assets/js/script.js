@@ -38,10 +38,11 @@ function borrar(id) {
 // función que agrega una nueva tarea al ingresarla en el input
 btnNuevaTarea.addEventListener("click", () => {
   let inputValue = inputNuevaTarea.value;
+  let newId = arrayList[arrayList.length - 1].id + 1;
   if (inputNuevaTarea.value === "") {
     alert("Debes ingresar una tarea");
   } else {
-    arrayList.push({ id: Date.now(), tarea: inputValue, realizada: false });
+    arrayList.push({ id: newId, tarea: inputValue, realizada: false });
     renderArrayList();
   }
   inputNuevaTarea.value = "";

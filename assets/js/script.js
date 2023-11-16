@@ -58,4 +58,11 @@ function checkState(id) {
   tareaEncontrada.realizada = true;
   realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
   tareasRealizadas.textContent = realizadaFiltrada.length;
+  tachar(id);
+  renderArrayList();
+}
+function tachar(id) {
+  tacharRealizada = arrayList.find((item) => item.id === id);
+  pintar = tacharRealizada.tarea = "Realizado";
+  console.log(tacharRealizada);
 }

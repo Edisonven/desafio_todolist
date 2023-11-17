@@ -32,10 +32,8 @@ renderArrayList();
 
 // función que borra un elemento agregado al arreglo por su id
 function borrar(id) {
-  if (arrayList.length >= 2) {
-    let indice = arrayList.findIndex((list) => list.id === id);
-    arrayList.splice(indice, 1);
-  }
+  let indice = arrayList.findIndex((list) => list.id === id);
+  arrayList.splice(indice, 1);
   actualizarRealizadas();
   renderArrayList();
 }
@@ -43,7 +41,12 @@ function borrar(id) {
 // función que agrega una nueva tarea al ingresarla en el input
 btnNuevaTarea.addEventListener("click", () => {
   let inputValue = inputNuevaTarea.value;
-  let newId = arrayList[arrayList.length - 1].id + 1;
+  let newId = "";
+  if (arrayList.length >= 1) {
+    newId = arrayList[arrayList.length - 1].id + 1;
+  } else {
+    newId = arrayList.id = 10;
+  }
   if (inputNuevaTarea.value === "") {
     alert("Debes ingresar una tarea");
   } else {

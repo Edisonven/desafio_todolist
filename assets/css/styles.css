@@ -26,8 +26,10 @@ hr {
   background-color: #9b9999;
 }
 .sub__title {
+  display: inline-block;
   margin-top: 40px;
   font-size: 1.3rem;
+  font-weight: bold;
 }
 .input__container {
   margin: 10px 0;

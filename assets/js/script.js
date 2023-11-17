@@ -69,6 +69,7 @@ function tareaCompletada(id) {
   tacharRealizada.tarea = "Realizada";
 }
 
+// función que actualiza cada vez que se elimina una tarea realizada
 function actualizarRealizadas() {
   realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
   tareasRealizadas.textContent = realizadaFiltrada.length;

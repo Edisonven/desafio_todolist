@@ -28,7 +28,6 @@ function renderArrayList() {
   idNuevaTarea.innerHTML = htmlListId;
   totalTareas.textContent = arrayList.length;
 }
-
 renderArrayList();
 
 // función que borra un elemento agregado al arreglo por su id
@@ -37,6 +36,7 @@ function borrar(id) {
     let indice = arrayList.findIndex((list) => list.id === id);
     arrayList.splice(indice, 1);
   }
+  actualizarRealizadas();
   renderArrayList();
 }
 
@@ -67,4 +67,9 @@ function checkState(id) {
 function tareaCompletada(id) {
   tacharRealizada = arrayList.find((item) => item.id === id);
   tacharRealizada.tarea = "Realizada";
+}
+
+function actualizarRealizadas() {
+  realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
+  tareasRealizadas.textContent = realizadaFiltrada.length;
 }

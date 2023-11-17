@@ -108,4 +108,5 @@ input[type="text"] {
 }
 .icon:hover {
   cursor: pointer;
+  filter: brightness(80%);
 }

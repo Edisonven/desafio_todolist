@@ -59,7 +59,7 @@ btnNuevaTarea.addEventListener("click", () => {
 function checkStatus(id) {
   let tareaEncontrada = arrayList.find((list) => list.id === id);
   tareaEncontrada.realizada = true;
-  realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
+  let realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
   tareasRealizadas.textContent = realizadaFiltrada.length;
   tareaCompletada(id);
   renderArrayList();
@@ -67,12 +67,12 @@ function checkStatus(id) {
 
 //funcion para cambiar el texto de la tarea cuando está realizada
 function tareaCompletada(id) {
-  tacharRealizada = arrayList.find((item) => item.id === id);
+  let tacharRealizada = arrayList.find((item) => item.id === id);
   tacharRealizada.tarea = "Realizada.";
 }
 
 // función que actualiza cada vez que se elimina una tarea realizada
 function actualizarRealizadas() {
-  realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
+  let realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
   tareasRealizadas.textContent = realizadaFiltrada.length;
 }

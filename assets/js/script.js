@@ -8,9 +8,9 @@ let tareasRealizadas = document.getElementById("realizadas");
 
 // arreglo de objetos con tareas por defecto
 let arrayList = [
-  { id: 1, tarea: "Hacer el aseo", realizada: false },
-  { id: 2, tarea: "Limpiar la cocina", realizada: false },
-  { id: 3, tarea: "Hacer mercado", realizada: false },
+  { id: 1, tarea: "Hacer el aseo.", realizada: false },
+  { id: 2, tarea: "Limpiar la cocina.", realizada: false },
+  { id: 3, tarea: "Hacer mercado.", realizada: false },
 ];
 
 //funcion que renderiza las tareas agregadas por defecto (y las tareas agregadas por input)
@@ -49,7 +49,7 @@ btnNuevaTarea.addEventListener("click", () => {
   if (inputNuevaTarea.value === "") {
     alert("Debes ingresar una tarea");
   } else {
-    arrayList.push({ id: newId, tarea: inputValue, realizada: false });
+    arrayList.push({ id: newId, tarea: inputValue + ".", realizada: false });
     renderArrayList();
   }
   inputNuevaTarea.value = "";

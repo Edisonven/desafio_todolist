@@ -18,9 +18,15 @@ function renderArrayList() {
   let htmlListTarea = "";
   let htmlListId = "";
   arrayList.forEach((item) => {
-    htmlListTarea += `<span class="span__text span__text--box">${item.tarea}<div>
-    <img class="icon" src="./assets/images/check.svg" onclick="checkStatus(${item.id})" alt="">
-    <img class="icon" src="./assets/images/x.svg" onclick="borrar(${item.id})" alt=""></div></span>`;
+    htmlListTarea += `<span class="span__text span__text--box">${
+      item.realizada ? "Realizada." : item.tarea
+    }<div>
+    <img class="icon" src="./assets/images/check.svg" onclick="checkStatus(${
+      item.id
+    })" alt="">
+    <img class="icon" src="./assets/images/x.svg" onclick="borrar(${
+      item.id
+    })" alt=""></div></span>`;
     htmlListId += ` <p class="span__text">${item.id}</p>`;
   });
   contentNuevaTarea.innerHTML = htmlListTarea;
@@ -58,17 +64,15 @@ btnNuevaTarea.addEventListener("click", () => {
 //funcion para actualizar la lista de tareas cuando están realizadas
 function checkStatus(id) {
   let tareaEncontrada = arrayList.find((list) => list.id === id);
-  tareaEncontrada.realizada = true;
-  let realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
-  tareasRealizadas.textContent = realizadaFiltrada.length;
-  tareaCompletada(id);
+  if (tareaEncontrada.realizada) {
+    tareaEncontrada.realizada = false;
+    tareasRealizadas.textContent--;
+  } else {
+    tareaEncontrada.realizada = true;
+    let realizadaFiltrada = arrayList.filter((item) => item.realizada === true);
+    tareasRealizadas.textContent = realizadaFiltrada.length;
+  }
   renderArrayList();
-}
-
-//funcion para cambiar el texto de la tarea cuando está realizada
-function tareaCompletada(id) {
-  let tacharRealizada = arrayList.find((item) => item.id === id);
-  tacharRealizada.tarea = "Realizada.";
 }
 
 // función que actualiza cada vez que se elimina una tarea realizada

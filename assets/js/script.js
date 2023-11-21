@@ -19,7 +19,8 @@ function renderArrayList() {
   let htmlListId = "";
   arrayList.forEach((item) => {
     htmlListTarea +=
-   `<span class="span__text span__text--box" style="${item.realizada?"text-decoration: line-through" : ""}">${item.tarea}
+    //condicional que agrega y quita un estilo en base a un true o false
+   `<span class="span__text span__text--box" style="${item.realizada ? "text-decoration: line-through" : ""}">${item.tarea}
       <div>
         <img class="icon" src="./assets/images/check.svg" onclick="checkStatus(${item.id})" alt="">
         <img class="icon" src="./assets/images/x.svg" onclick="borrar(${item.id})" alt="">

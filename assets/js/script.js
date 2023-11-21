@@ -18,15 +18,13 @@ function renderArrayList() {
   let htmlListTarea = "";
   let htmlListId = "";
   arrayList.forEach((item) => {
-    htmlListTarea += `<span class="span__text span__text--box">${
-      item.realizada ? "Realizada." : item.tarea
-    }<div>
-    <img class="icon" src="./assets/images/check.svg" onclick="checkStatus(${
-      item.id
-    })" alt="">
-    <img class="icon" src="./assets/images/x.svg" onclick="borrar(${
-      item.id
-    })" alt=""></div></span>`;
+    htmlListTarea += 
+    `<span class="span__text span__text--box">${item.realizada ? "Realizada." : item.tarea}
+    <div>
+    <img class="icon" src="./assets/images/check.svg" onclick="checkStatus(${item.id})" alt="">
+    <img class="icon" src="./assets/images/x.svg" onclick="borrar(${item.id})" alt="">
+    </div>
+    </span>`;
     htmlListId += ` <p class="span__text">${item.id}</p>`;
   });
   contentNuevaTarea.innerHTML = htmlListTarea;
